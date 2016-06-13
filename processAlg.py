@@ -71,8 +71,17 @@ def getPathList(stable, end):
     else:
         return [end]
 
+def getPosList(stable, vertices, end):
+    # 递归获取位置
+    res = []
+    if stable[end].has_key('last'):
+        res = getPosList(stable, vertices, stable[end]['last'])
+        res.append([vertices[end]['x'],vertices[end]['y']])
+        return res
+    else:
+        return [[vertices[end]['x'],vertices[end]['y']]]
 
-def findPath(vertices, start, end):
+def findPath(vertices, start, end, pos=False):
     # 维护两个点集 stable中为已经确定最短路径的点集 unstable中为未确定最短路径的点集 
     stable = {}
     unstable = {}
@@ -111,7 +120,10 @@ def findPath(vertices, start, end):
 
         # 已经得到最后的终点
         if end == tobestablename:
-            return getPathList(stable, end)
+            if pos:
+                return getPosList(stable, vertices, end)
+            else:
+                return getPathList(stable, end)
             
         point = tobestablename
         nowdist = smallest
@@ -124,6 +136,9 @@ def main():
     vertices = generateMap()
     result = findPath(vertices, start, end)
     print '->'.join(result).decode('utf-8')
+    pos = findPath(vertices, start, end, True)
+    for x,y in pos:
+        print '['+x+', '+y+'],'
 
 main()
 
