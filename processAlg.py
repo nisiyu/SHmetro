@@ -2,6 +2,7 @@
 import os
 import sys
 import math
+import json
 
 def calcdist(st1, st2):
     # 计算两个点之间的距离
@@ -134,6 +135,8 @@ def main():
     start = raw_input('起点：')
     end = raw_input('终点：')
     vertices = generateMap()
+    # 用json dump当前所有点的情况
+    # json.dump(vertices,open("vertices.txt","w"),)
     result = findPath(vertices, start, end)
     print '->'.join(result).decode('utf-8')
     pos = findPath(vertices, start, end, True)
