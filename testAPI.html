@@ -7,14 +7,31 @@
     <div id="container" style="width:600px;height:400px;">
         
     </div>
-    <div id="input" style="margin-top:10px">
-    <label for="start">起点:</label><input type="text" id="start" value="黄兴公园"/>
-    <label for="end">终点:</label><input type="text" id="end" value="人民广场"/>
-    <input type="button" value="寻找路径" style="font-size: 20px" onclick="mapfunc.init(window);mapfunc.searchPath(window);"/>
+    <div id="input" class="input" style="margin-top:10px">
+        <span> 路线1: </span>
+        <label for="start">起点:</label><input type="text" id="start" class="start" value="黄兴公园"/>
+        <label for="end">终点:</label><input type="text" id="end" class="end" value="人民广场"/>
+        <p></p>
+        
     </div>
-
+    <div id="input" class="input" style="margin-top:10px">
+        <span> 路线2: </span>
+        <label for="start">起点:</label><input type="text" id="start" class="start" value="金海路"/>
+        <label for="end">终点:</label><input type="text" id="end" class="end" value="隆昌路"/>
+        <p></p>
+    </div>
+    <div id="input" class="input" style="margin-top:10px">
+        <span> 路线3: </span>
+        <label for="start">起点:</label><input type="text" id="start" class="start" value="陕西南路"/>
+        <label for="end">终点:</label><input type="text" id="end" class="end" value="东川路"/>
+        <p></p>
+    </div>
+    <div id="findPath">
+        <input type="button" value="寻找路径" style="font-size: 20px" onclick="mapfunc.init(window);mapfunc.searchPath(window);"/>
+    </div>
     <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=2305c8a0234c9919bf2562b0e6c455f" ></script> 
     <script type="text/javascript" src="vertices.js"></script>
     <script src="testAPI.js"></script>
+    <script src="jquery.min.js"></script>
 </body>
 </html>
