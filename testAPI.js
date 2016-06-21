@@ -99,6 +99,7 @@ searchPath: function(win){
         end.push($(this).val());
     });
     for (var i=0; i<3; i++) {
+        
         var pathObj = findPath(verticesstr,start[i],end[i]);
         var lineArr = pathObj['pos'];
         var linestr = pathObj['str'];
